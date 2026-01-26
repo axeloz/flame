@@ -1,4 +1,4 @@
-import { KeyboardEvent, useEffect, useRef } from 'react';
+import { FormEvent, KeyboardEvent, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -60,7 +60,15 @@ export const SearchBar = (props: Props): JSX.Element => {
     setLocalSearch('');
   };
 
-  const searchHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+  const searchTypingHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Escape') {
+      clearSearch();
+    } else {
+      executeSearch(true)
+    }
+  }
+
+  const executeSearch = (localSearchOnly: boolean) => {
     const {
       isLocal,
       encodedURL,
@@ -75,7 +83,7 @@ export const SearchBar = (props: Props): JSX.Element => {
       setLocalSearch(encodedURL);
     }
 
-    if (e.code === 'Enter' || e.code === 'NumpadEnter') {
+    if (!localSearchOnly) {
       if (!primarySearch.prefix) {
         // Prefix not found -> emit notification
         createNotification({
@@ -110,20 +118,25 @@ export const SearchBar = (props: Props): JSX.Element => {
         const url = `${primarySearch.template}${encodedURL}`;
         redirectUrl(url, sameTab);
       }
-    } else if (e.code === 'Escape') {
-      clearSearch();
     }
   };
 
+  const submitSearch = (e: FormEvent<HTMLFormElement>) => {
+    executeSearch(false);
+  }
+
+
   return (
     <div className={classes.SearchContainer}>
+      <form id="searchForm" onSubmit={(e) => submitSearch(e)}>
       <input
         ref={inputRef}
         type="text"
         className={classes.SearchBar}
-        onKeyDown={(e) => searchHandler(e)}
+        onKeyUp={(e) => searchTypingHandler(e)}
         onDoubleClick={clearSearch}
       />
+      </form>
     </div>
   );
 };
