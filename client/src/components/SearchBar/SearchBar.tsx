@@ -121,7 +121,7 @@ export const SearchBar = (props: Props): JSX.Element => {
         ref={inputRef}
         type="text"
         className={classes.SearchBar}
-        onKeyUp={(e) => searchHandler(e)}
+        onKeyDown={(e) => searchHandler(e)}
         onDoubleClick={clearSearch}
       />
     </div>
