@@ -64,11 +64,11 @@ export const SearchBar = (props: Props): JSX.Element => {
     if (e.code === 'Escape') {
       clearSearch();
     } else if (e.code !== 'Enter' && e.code !== 'NumpadEnter') {
-      executeSearch(true)
+      executeSearch(false)
     }
   }
 
-  const executeSearch = (localSearchOnly: boolean) => {
+  const executeSearch = (redirectToResult: boolean) => {
     const {
       isLocal,
       encodedURL,
@@ -83,7 +83,7 @@ export const SearchBar = (props: Props): JSX.Element => {
       setLocalSearch(encodedURL);
     }
 
-    if (!localSearchOnly) {
+    if (redirectToResult) {
       if (!primarySearch.prefix) {
         // Prefix not found -> emit notification
         createNotification({
@@ -122,7 +122,7 @@ export const SearchBar = (props: Props): JSX.Element => {
   };
 
   const submitSearch = (e: FormEvent<HTMLFormElement>) => {
-    executeSearch(false);
+    executeSearch(true);
     e.preventDefault()
   }
 
