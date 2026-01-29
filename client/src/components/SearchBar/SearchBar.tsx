@@ -123,6 +123,7 @@ export const SearchBar = (props: Props): JSX.Element => {
 
   const submitSearch = (e: FormEvent<HTMLFormElement>) => {
     executeSearch(false);
+    e.preventDefault()
   }
 
 
