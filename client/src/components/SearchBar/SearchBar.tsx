@@ -63,7 +63,7 @@ export const SearchBar = (props: Props): JSX.Element => {
   const searchTypingHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.code === 'Escape') {
       clearSearch();
-    } else {
+    } else if (e.code !== 'Enter' && e.code !== 'NumpadEnter') {
       executeSearch(true)
     }
   }
