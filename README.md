@@ -38,7 +38,7 @@ docker pull ghcr.io/fdarveau/flame:2021-12-12
 
 ```sh
 # run container
-docker run -p 5005:5005 -v /path/to/data:/app/data -e PASSWORD=flame_password ghcr.io/fdarveau/flame:latest
+docker run -p 5005:5005 -v /path/to/data:/app/data -e PASSWORD=change_me ghcr.io/fdarveau/flame:latest
 ```
 
 #### Building images
@@ -72,7 +72,7 @@ services:
     secrets:
       - password # optional but required for (1)
     environment:
-      - PASSWORD=flame_password
+      - PASSWORD=change_me
       - PASSWORD_FILE=/run/secrets/password # optional but required for (1)
     restart: unless-stopped
 
