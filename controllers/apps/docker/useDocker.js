@@ -109,6 +109,7 @@ const useDocker = async (apps) => {
         /^app/.test(labels['flame.type'])
       ) {
         const names = labels['flame.name'].split(';');
+        const descriptions = labels['flame.description'] ? labels['flame.description'].split(';') : [];
         const urls = labels['flame.url'].split(';');
         const categoriesLabels = labels['flame.category'] ? labels['flame.category'].split(';') : [];
         const orders = labels['flame.order'] ? labels['flame.order'].split(';') : [];
@@ -127,6 +128,7 @@ const useDocker = async (apps) => {
 
           dockerApps.push({
             name: names[i] || names[0],
+            description: description[i] || description[0],
             url: urls[i] || urls[0],
             icon: icons[i] || 'docker',
             categoryId: category.id,
