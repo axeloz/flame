@@ -3,9 +3,8 @@
 ![Homescreen screenshot](.github/home.png)
 
 ## Important note
-If you encounter any problem, you can open an Issue in this fork so I can look into it. 
-
-Since this is a fork aimed at adding app categories only, no new features will be added, but bugs will be fixed if I can reproduce them on my setup. If my setup does not allow me to reproduce bugs reported (such as the ones involving Kubernetes, which I don't use), I will ask the person who opened the issue to test a bugfix build before publishing the fix.
+This is a fork of a fork for my personal needs. Big up for the [original project](https://github.com/pawelmalak/flame) and for [Fdarveau's fork](https://github.com/fdarveau/flame) who introduces application categories. 
+Because I didn't understand why descriptions can be set automatically in the Docker labels as can be the name or URL, this is my fork and it will remain as such for a while. I won't be able to add new features or provide much support. This may change in the future as I have many ideas for Flame. 
 
 ## Description
 
