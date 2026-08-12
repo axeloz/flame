@@ -128,7 +128,7 @@ const useDocker = async (apps) => {
 
           dockerApps.push({
             name: names[i] || names[0],
-            description: description[i] || description[0],
+            description: descriptions[i] || descriptions[0],
             url: urls[i] || urls[0],
             icon: icons[i] || 'docker',
             categoryId: category.id,
