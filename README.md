@@ -4,7 +4,7 @@
 
 ## Important note
 This is a fork of a fork for my personal needs. Big up for the [original project](https://github.com/pawelmalak/flame) and for [Fdarveau's fork](https://github.com/fdarveau/flame) who introduces application categories. 
-Because I didn't understand why descriptions can be set automatically in the Docker labels as can be the name or URL, this is my fork and it will remain as such for a while. I won't be able to add new features or provide much support. This may change in the future as I have many ideas for Flame. 
+Because I didn't understand why descriptions couldn't be set automatically in the Docker labels the same way name or URL could, I will try to address this need is my fork and it will remain as such for a while. I won't be able to add new features or provide much support. This may change in the future as I have many ideas for Flame. 
 
 ## Description
 
